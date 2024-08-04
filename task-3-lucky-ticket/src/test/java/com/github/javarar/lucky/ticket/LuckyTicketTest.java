@@ -10,16 +10,20 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LuckyTicketTest {
+    private final static Double epsilon = 0.00001;
 
     @DisplayName("Задание 7. Счастливый билет")
     @ParameterizedTest
     @MethodSource("cases")
-    public void luckyTicketProbabilityTest(int serialNumberLength, double probability) {
-        throw new UnsupportedOperationException("реализуй меня");
+    public void moscowLuckyTicketProbabilityTest(int serialNumberLength, double probability) {
+        var result = LuckyTicket.moscowLuckyTicketProbability(serialNumberLength);
+        assertTrue(Math.abs(result - probability) < epsilon);
     }
 
     private static Stream<Arguments> cases() {
-        throw new UnsupportedOperationException("реализуй меня");
+        return Stream.of(
+                Arguments.of(6, 0.055252)
+        );
     }
 
 }
